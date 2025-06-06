@@ -22,8 +22,8 @@ models/
 models/*
 
 # Jangan ignore folder app dan file .py
-!klasifikasi_penyakit_daun/app/
-!klasifikasi_penyakit_daun/app/*.py
+!klasifikasi_penyakit_daunnn/app/
+!klasifikasi_penyakit_daunnn/app/*.py
 
 # Output
 outputs/
