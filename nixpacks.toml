@@ -1,8 +1,5 @@
-[phases.setup]
-nixPkgs = ["python311", "pip"]
+[dependencies]
+packages = ["mesa", "libglvnd", "python311", "pip"]
 
-[phases.install]
-cmds = ["pip install -r requirements.txt"]
-
-[phases.start]
-cmd = "streamlit run klasifikasi_penyakit_daun/app/streamlit_app.py"
+[start]
+cmd = "streamlit run klasifikasi_penyakit_daun/app/streamlit_app.py --server.port $PORT --server.address 0.0.0.0"
