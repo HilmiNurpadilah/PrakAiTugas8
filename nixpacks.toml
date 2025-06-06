@@ -1,4 +1,8 @@
-[
-    dependencies
-]
-packages = ["mesa", "libglvnd"]
+[phases.setup]
+nixPkgs = ["python311", "pip"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.start]
+cmd = "streamlit run streamlit_app.py"
