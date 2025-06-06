@@ -1,0 +1,47 @@
+# Python cache & environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+venv/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Data & dataset (jangan upload data asli ke GitHub)
+data/
+data/*
+datasets/
+datasets/*
+features/
+*.csv
+models/
+models/*
+
+
+# Output
+outputs/
+outputs/*
+*.joblib
+
+# Model dan file besar
+*.pkl
+*.h5
+*.pt
+*.sav
+*.zip
+*.rar
+*.7z
+
+# Streamlit & log
+.streamlit/
+logs/
+
+# OS & editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
