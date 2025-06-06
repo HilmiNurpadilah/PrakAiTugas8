@@ -1,1 +1,2 @@
-web: streamlit run klasifikasi_penyakit_daun/app/streamlit_app.py --server.port $PORT --server.address 0.0.0.0
+web: streamlit run 
+klasifikasi_penyakit_daun/app/streamlit_app.py
