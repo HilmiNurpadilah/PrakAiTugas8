@@ -55,7 +55,7 @@ import os
 import subprocess
 
 # Download model otomatis jika belum ada
-MODEL_PATH = 'klasifikasi_penyakit_daun/models/random_forest_model.pkl'
+MODEL_PATH = 'klasifikasi_penyakit_daunnn/models/random_forest_model.pkl'
 MODEL_DIR = os.path.dirname(MODEL_PATH)
 MODEL_GDRIVE_ID = '1TiBzISDtQR4_vuyPr7hgSA0Iwh3wHnkH'
 
