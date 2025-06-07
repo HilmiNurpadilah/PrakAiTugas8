@@ -39,9 +39,8 @@ outputs/*
 *.rar
 *.7z
 
-# Streamlit & log
-.streamlit/
-logs/
+# Jangan ignore file utama aplikasi di root
+!streamlit_app.py
 
 # OS & editor
 .DS_Store
