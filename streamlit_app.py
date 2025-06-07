@@ -61,17 +61,38 @@ MODEL_GDRIVE_ID = '1TiBzISDtQR4_vuyPr7hgSA0Iwh3wHnkH'
 
 if not os.path.exists(MODEL_PATH):
     os.makedirs(MODEL_DIR, exist_ok=True)
-    try:
-        import gdown
-    except ImportError:
-        subprocess.check_call(['pip', 'install', 'gdown'])
-        import gdown
-    url = f'https://drive.google.com/uc?id={MODEL_GDRIVE_ID}'
-    print(f"Downloading model from {url} ...")
-    gdown.download(url, MODEL_PATH, quiet=False)
+# Download & load model dari GitHub Release (model hasil compress, path sejajar dengan klasifikasi_deploy)
+import requests
+MODEL_PATH = './models/random_forest_model_compressed.pkl'
+MODEL_URL = 'https://github.com/HilmiNurpadilah/ai8deploy/releases/download/v1.0/random_forest_model_compressed.pkl'
 
-# Load model
-model = joblib.load(MODEL_PATH)
+if not os.path.exists(MODEL_PATH):
+    os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
+    with st.spinner('Downloading model...'):
+        response = requests.get(MODEL_URL, stream=True)
+        response.raise_for_status()
+        with open(MODEL_PATH, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
+    st.success("Model downloaded!")
+
+# Cek ukuran file model
+if os.path.exists(MODEL_PATH):
+    size_mb = os.path.getsize(MODEL_PATH)/1024/1024
+    st.write(f"Model size: {size_mb:.2f} MB")
+    if size_mb < 1:
+        st.error("Model file too small, kemungkinan gagal download!")
+else:
+    st.error("Model file not found!")
+
+with st.spinner('Loading model...'):
+    try:
+        model = joblib.load(MODEL_PATH)
+        st.success("Model loaded!")
+    except Exception as e:
+        st.error(f"Gagal load model: {e}")
+        st.stop()
 
 # Sidebar
 st.sidebar.image("https://cdn-icons-png.flaticon.com/512/2909/2909763.png", width=80)

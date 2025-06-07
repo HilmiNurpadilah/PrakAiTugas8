@@ -52,7 +52,7 @@ def split_dataset(raw_dir, train_dir, test_dir, split_ratio=0.8):
             shutil.copy2(os.path.join(label_path, img), os.path.join(test_label_dir, img_baru))
 
 if __name__ == '__main__':
-    RAW_DATA = 'C:/Users/hilmi/Documents/SEMESTER 4/prak AI/prak ai tugas 8/klasifikasi_penyakit_daun/data/raw/PlantVillage'
+    RAW_DATA = 'C:/Users/hilmi/Documents/SEMESTER 4/prak AI/prak ai tugas 8/klasifikasi_penyakit_daunnn/data/raw/PlantVillage'
     TRAIN_DIR = 'datasets/train'
     TEST_DIR = 'datasets/test'
     FEATURES_DIR = 'features'
