@@ -2,4 +2,4 @@
 packages = ["mesa", "libglvnd", "python311", "pip"]
 
 [start]
-cmd = "streamlit run klasifikasi_penyakit_daunnn/app/streamlit_app.py --server.port $PORT --server.address 0.0.0.0"
+cmd = "streamlit run klasifikasi_penyakit_daunnn/streamlit_app.py --server.port $PORT --server.address 0.0.0.0"
