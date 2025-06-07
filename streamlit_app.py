@@ -51,8 +51,27 @@ label_mapping = {
     "Tomato_healthy": "Tomat - Sehat",
 }
 
+import os
+import subprocess
+
+# Download model otomatis jika belum ada
+MODEL_PATH = 'klasifikasi_penyakit_daun/models/random_forest_model.pkl'
+MODEL_DIR = os.path.dirname(MODEL_PATH)
+MODEL_GDRIVE_ID = '1TiBzISDtQR4_vuyPr7hgSA0Iwh3wHnkH'
+
+if not os.path.exists(MODEL_PATH):
+    os.makedirs(MODEL_DIR, exist_ok=True)
+    try:
+        import gdown
+    except ImportError:
+        subprocess.check_call(['pip', 'install', 'gdown'])
+        import gdown
+    url = f'https://drive.google.com/uc?id={MODEL_GDRIVE_ID}'
+    print(f"Downloading model from {url} ...")
+    gdown.download(url, MODEL_PATH, quiet=False)
+
 # Load model
-model = joblib.load('klasifikasi_penyakit_daun/models/random_forest_model.pkl')
+model = joblib.load(MODEL_PATH)
 
 # Sidebar
 st.sidebar.image("https://cdn-icons-png.flaticon.com/512/2909/2909763.png", width=80)
