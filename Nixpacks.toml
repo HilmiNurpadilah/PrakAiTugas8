@@ -1,4 +1,5 @@
-[
-    start
-]
+[dependencies]
+packages = ["mesa", "libglvnd", "python311", "pip"]
+
+[start]
 cmd = "streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0"
