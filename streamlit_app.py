@@ -8,6 +8,7 @@ from skimage.transform import resize
 from PIL import Image
 import base64
 
+print("=== STREAMLIT APP STARTED ===")
 # Mapping label Inggris ke Indonesia (edit sesuai kebutuhan)
 label_mapping = {
     "Apple___Apple_scab": "Apel - Kudis Apel",
